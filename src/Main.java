@@ -219,24 +219,111 @@ public class Main {
 // o 1 - skaičius. Monetos metimo rezultatus išvedame į ekraną atskiroje eilutėje:
 // “S” jeigu iškrito skaičius ir “H” jeigu herbas. Suprogramuokite tris skirtingus scenarijus
 // kai monetos metimą stabdome:
+        //Iškritus herbui;
+        //Tris kartus iškritus herbui;
+        //Tris kartus iš eilės iškritus herbui;
 
-        int mon = (int) Math.round(Math.random());
-//        1 = S
-//        0 = H
-//            "S";
-//        } else {
-//            "H"
+// <A dalis>
+//        for (int i = 0; i < 10; i++) {
+//            int mon = (int) Math.round(Math.random());
+//                if (mon == 0) {
+//                    System.out.println("herbas");
+//                    break;
+//            } else {
+//                System.out.println("skaicius");
+//            }
 //        }
-
-        for (int i = 0; i < 100; i++) {
-            System.out.println(mon);
-            if(mon == 0){
-                break;
+//
+//        <B dalis >
+//        int herb = 0;
+//        for (int i = 0; i < 10; i++) {
+//            int mon = (int) Math.round(Math.random());
+//            if (mon == 0) {
+//                System.out.println("herbas");
+//                herb++;
+//                if (herb >= 3) {
+//                    break;
+//                }
+//            } else {
+//                System.out.println("skaicius");
+//            }
+//        }
+//
+//        <C dalis>
+        int herb = 0;
+        while(herb < 3) {
+            int mon = (int) Math.round(Math.random());
+            if (mon == 0) {
+                System.out.println("herbas");
+                herb++;
+                if (herb >= 3) {
+                    break;
+                }
+            } else {
+                herb = 0;
+                System.out.println("skaicius");
             }
         }
 
+        System.out.println("<sunkesniu 6 uzduotis>");
+//        Kazys ir Petras žaidžia šaškėm. Petras surenka taškų kiekį nuo 10 iki 20,
+//        Kazys surenka taškų kiekį nuo 5 iki 25. Vienoje eilutėje išvesti žaidėjų vardus su taškų kiekiu ir
+//        “Partiją laimėjo: laimėtojo vardas”. Taškų kiekį generuokite funkcija Math.random().
+//        Žaidimą laimi tas, kas greičiau surenka 222 taškus. Partijas kartoti tol,
+//        kol kažkuris žaidėjas pirmas surenka 222 arba daugiau taškų.
 
+        int pmin = 10;
+        int pmax = 20;
+        int petrTask = 0;
+        int kmin = 5;
+        int kmax = 25;
+        int kazTask = 0;
+        int maxPoint = 222; //maksimalus taskai
+        System.out.println("Petras Kazys");
+        while (kazTask <= maxPoint || petrTask <= maxPoint) {
+            int petras = (int) (pmin + Math.round(Math.random() * (pmax - pmin)));
+            int kazys = (int) (kmin + Math.round(Math.random() * (kmax - kmin)));
+            petrTask = petrTask + petras;
+            kazTask = kazTask + kazys;
+            System.out.println(petrTask + " " + kazTask);
+        }
+            if (petrTask > kazTask) {
+                System.out.println("Partija laimejo: Petras su " + petrTask + " taskais");
+            } else if (petrTask < kazTask) {
+                System.out.println("Partija laimejo: Kazys su " + kazTask + " taskais");
+            } else {
+                System.out.println("Partijos rezultatas - lygiosios");
+            }
 
+        System.out.println("<sunkesniu 7 uzduotis>");
+//Reikia nupaišyti pilnavidurį rombą, taip pat, kaip ir pilnavidurį kvadratą, kurio aukštis 21 eilutė.
 
+        String rombas = "*";
+        String kampai = "0";
+        max = 9;
+//        for (int i = 0; i < max; i++) {
+////            for (int p = 0; p < max; p++) {
+////                if     (p + i <= (max / 2) - 1 ||
+////                        p + i >= (max * 2) - ((max / 2) - 1) ||
+////                        (i < ((max / 2) - 1) && p > ((max / 2) + 1)) ||
+////                        (i > ((max / 2) - 1) && p < ((max / 2) + 1))) {
+////                    System.out.print(rombas + " ");
+////                } else {
+////                    System.out.print(kampai + " ");
+////                }
+////            }
+////            System.out.println();
+////        }
+        int vidurys = Math.round(max/2);
+        for (int i = 0; i < max; i++) {
+            for (int p = 0; p < max; p++) {
+                if (Math.abs(p - i) >= vidurys || p + i <= vidurys ) {
+                    System.out.print(rombas + " ");
+                } else {
+                    System.out.print(kampai + " ");
+                }
+            }
+            System.out.println();
+        }
     }
 }
