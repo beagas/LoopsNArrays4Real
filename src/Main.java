@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -17,7 +21,7 @@ public class Main {
 
         System.out.println("<3 uzduotis>");
 //Sukurkite masyvą iš dešimties augalų pavadinimų.
-        String [] plant = new String [10];
+        String[] plant = new String[10];
         plant[0] = "ceropegija";
         plant[1] = "alokacija";
         plant[2] = "karoline";
@@ -42,7 +46,7 @@ public class Main {
 //Atspausdinkite 3čio uždavinio kiekvieną augalą pradedant nuo paskutinio,
 // ir baigiant pirmuoju. (atvirkščias ciklas).
 
-        for (int i = plant.length -1; i >= 0; i--) { // pradedama nuo 10-1 aka 9 pozicijos, iki kol "i" nebėra didesnis už 0, kiekvienu žingsniu mažinant pozicijos eilės numerį
+        for (int i = plant.length - 1; i >= 0; i--) { // pradedama nuo 10-1 aka 9 pozicijos, iki kol "i" nebėra didesnis už 0, kiekvienu žingsniu mažinant pozicijos eilės numerį
             System.out.println((i + 1) + ". " + plant[i]);
         }
 
@@ -63,7 +67,7 @@ public class Main {
                 continue;
             }
             if (i % 2 == 0)
-            System.out.println(i);
+                System.out.println(i);
         }
 
         System.out.println("<8 uzduotis>");
@@ -104,7 +108,7 @@ public class Main {
 //Suskaičiuokite kiek 3čio uždavinio masyve yra žodžių ilgesnių nei 5 simboliai bet
 // trumpesnių  nei 10 simboliai. (tarp 5 ir 10 simbolių ilgio)
 
-int desim = 0;
+        int desim = 0;
         for (int i = 0; i < 10; i++) {
             //System.out.println(plant[i].length());
             if (plant[i].length() < 6) {
@@ -135,7 +139,7 @@ int desim = 0;
             }
             did150++;
         }
-        System.out.println("");
+        System.out.println();
         System.out.println("numbers bigger than 150: " + did150);
 
         System.out.println("<sunkesniu 2 uzduotis>");
@@ -143,7 +147,7 @@ int desim = 0;
 // Skaičius atskirkite kableliais. Po paskutinio skaičiaus kablelio neturi būti.
 
         boolean first = true;
-        for (int i = 1; i < 3001; i++) {
+        for (int i = 1; i <= 3000; i++) {
             if (i % 77 == 0) {
                 if (first) {
                     System.out.print(i);
@@ -155,8 +159,24 @@ int desim = 0;
                 continue;
             }
         }
-
         System.out.println("");
+
+
+        ArrayList<String> numbers = new ArrayList<>();
+
+        for (int i = 1; i <= 3000; i++) {
+            if (i % 77 == 0) {
+                numbers.add(String.valueOf(i));
+            }
+        }
+        System.out.println(String.join(", ", numbers));
+
+
+        String[] number = new String[3000];
+
+
+
+        System.out.println();
         System.out.println("<sunkesniu 3 uzduotis>");
 //Nupieškite kvadratą iš “*”, kurio kraštines sudaro 25“*”.
 //* * * * * * * * * * *
@@ -166,20 +186,55 @@ int desim = 0;
 //* * * * * * * * * * *
 //* * * * * * * * * * *
 //* * * * * * * * * * *
-        String k = "*";
-        for (int i = 1; i < 25; i++) {
-            for (int p = 1; p < 25; p++) {
-                System.out.print(k + "  ");
-            }
-                System.out.println(k + "  ");
-            }
+//        String k = "*";
+//        for (int i = 1; i < 25; i++) {
+//            for (int p = 1; p < 25; p++) {
+//                System.out.print(k + "  ");
+//            }
+//            System.out.println(k + "  ");
+//        }
 
-        System.out.println("");
+
+
+        System.out.println();
         System.out.println("<sunkesniu 4 uzduotis>");
-        
-        
-        
-        
+        //Prieš tai nupieštam kvadratui nupieškite istrižaines zaigzdutę pakeisdami kitu simboliu.
+
+        String k = "*";
+        String istr = "+";
+        int max = 25;
+        for (int i = 0; i < max; i++) {
+            for (int p = 0; p < max; p++) {
+                if (p + i == max - 1 || p == i) {
+                    System.out.print(istr + " ");
+                } else {
+                    System.out.print(k + " ");
+                }
+            }
+            System.out.println("");
+        }
+
+        System.out.println("<sunkesniu 5 uzduotis>");
+//Metam monetą. Monetos kritimo rezultatą imituojam Math.random() funkcija, kur 0 yra herbas,
+// o 1 - skaičius. Monetos metimo rezultatus išvedame į ekraną atskiroje eilutėje:
+// “S” jeigu iškrito skaičius ir “H” jeigu herbas. Suprogramuokite tris skirtingus scenarijus
+// kai monetos metimą stabdome:
+
+        int mon = (int) Math.round(Math.random());
+//        1 = S
+//        0 = H
+//            "S";
+//        } else {
+//            "H"
+//        }
+
+        for (int i = 0; i < 100; i++) {
+            System.out.println(mon);
+            if(mon == 0){
+                break;
+            }
+        }
+
 
 
 
