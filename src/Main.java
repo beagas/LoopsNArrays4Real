@@ -296,34 +296,23 @@ public class Main {
             }
 
         System.out.println("<sunkesniu 7 uzduotis>");
-//Reikia nupaišyti pilnavidurį rombą, taip pat, kaip ir pilnavidurį kvadratą, kurio aukštis 21 eilutė.
+//Reikia nupaišyti pilnavidurį rombą, taip pat, kaip ir pilnavidurį kvadratą (https://lt.wikipedia.org/wiki/Rombas), kurio aukštis 21 eilutė.
 
-        String rombas = "*";
-        String kampai = "0";
-        max = 9;
-//        for (int i = 0; i < max; i++) {
-////            for (int p = 0; p < max; p++) {
-////                if     (p + i <= (max / 2) - 1 ||
-////                        p + i >= (max * 2) - ((max / 2) - 1) ||
-////                        (i < ((max / 2) - 1) && p > ((max / 2) + 1)) ||
-////                        (i > ((max / 2) - 1) && p < ((max / 2) + 1))) {
-////                    System.out.print(rombas + " ");
-////                } else {
-////                    System.out.print(kampai + " ");
-////                }
-////            }
-////            System.out.println();
-////        }
-        int vidurys = Math.round(max/2);
-        for (int i = 0; i < max; i++) {
-            for (int p = 0; p < max; p++) {
-                if (Math.abs(p - i) >= vidurys || p + i <= vidurys ) {
-                    System.out.print(rombas + " ");
+        int krastine = 11;
+        int vidurys = Math.round(krastine / 2);
+        for (int i = 0; i < krastine; i++) {
+            for (int p = 0; p < krastine; p++) {
+                if (Math.abs(p - i) > vidurys || p + i < vidurys || p + i >= vidurys + krastine) {
+                    System.out.print("   ");
                 } else {
-                    System.out.print(kampai + " ");
+                    System.out.print("0  ");
                 }
             }
             System.out.println();
         }
+
+
+
+
     }
 }
