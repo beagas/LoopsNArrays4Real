@@ -63,11 +63,9 @@ public class Main {
 // (atspausdinti visus porinus skaičius, išskyrus tuos kurie dalinasi iš 10 be liekanos)
 
         for (int i = 10; i <= 50; i += 2) {
-            if (i % 10 == 0) {
-                continue;
-            }
-            if (i % 2 == 0)
+            if (i % 10 != 0) {
                 System.out.println(i);
+            }
         }
 
         System.out.println("<8 uzduotis>");
